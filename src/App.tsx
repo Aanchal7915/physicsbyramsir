@@ -10,6 +10,7 @@ import Gallery from './pages/Gallery'
 import Trial from './pages/Trial'
 import Privacy from './pages/Privacy'
 import NotFound from "./pages/NotFound"
+import Footer from './components/Footer'
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
         <Route path="/not-found" element={<NotFound/>}/>
         <Route path='*' element={<Navigate to="/not-found" replace />} />
       </Routes>
+      <Footer/>
       
     </>
   )
