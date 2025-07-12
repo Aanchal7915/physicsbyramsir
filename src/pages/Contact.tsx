@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Atom from '../assets/atom.svg';
 
 const contactInfo = [
   {
@@ -47,7 +48,7 @@ const Contact: React.FC = () => {
         {/* Info Card */}
         <div className="bg-white/90 rounded-3xl shadow-2xl p-10 flex flex-col gap-8 border border-blue-100 animate-fade-in-left">
           <div className="flex items-center gap-3 mb-2">
-            <img src="https://www.svgrepo.com/show/354380/atom.svg" alt="Atom" className="w-10 h-10 opacity-80" />
+            <img src={Atom} alt="Atom" className="w-10 h-10 opacity-80" />
             <h1 className="text-3xl md:text-4xl font-extrabold text-blue-900 bg-gradient-to-r from-blue-400 via-blue-700 to-purple-600 bg-clip-text text-transparent animate-fade-in-up">Contact Us</h1>
           </div>
           <p className="text-lg text-gray-700 mb-4 animate-fade-in-up delay-100">We'd love to hear from you! Reach out for queries, admissions, or feedback. Our team will respond promptly.</p>
@@ -82,17 +83,43 @@ const Contact: React.FC = () => {
             <div className="bg-green-100 text-green-800 p-4 rounded-lg animate-fade-in-up">Thank you for reaching out! We will get back to you soon.</div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6 animate-fade-in-up delay-100">
-              <div className="relative">
-                <input name="name" type="text" required value={form.name} onChange={handleChange} className="peer w-full border-b-2 border-blue-200 bg-transparent py-3 px-2 text-gray-900 placeholder-transparent focus:outline-none focus:border-blue-600 transition-all duration-300" placeholder="Name*" />
-                <label className="absolute left-2 top-3 text-gray-500 text-base transition-all duration-300 peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-focus:-top-5 peer-focus:text-sm peer-focus:text-blue-700 bg-white px-1 rounded">Name*</label>
+              <div>
+                <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">Name*</label>
+                <input 
+                  id="name"
+                  name="name" 
+                  type="text" 
+                  required 
+                  value={form.name} 
+                  onChange={handleChange} 
+                  className="w-full border-2 border-gray-300 bg-white py-3 px-4 text-gray-900 rounded-lg focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-200 transition-all duration-300" 
+                  placeholder="Enter your name"
+                />
               </div>
-              <div className="relative">
-                <input name="email" type="email" required value={form.email} onChange={handleChange} className="peer w-full border-b-2 border-blue-200 bg-transparent py-3 px-2 text-gray-900 placeholder-transparent focus:outline-none focus:border-blue-600 transition-all duration-300" placeholder="Email Address*" />
-                <label className="absolute left-2 top-3 text-gray-500 text-base transition-all duration-300 peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-focus:-top-5 peer-focus:text-sm peer-focus:text-blue-700 bg-white px-1 rounded">Email Address*</label>
+              <div>
+                <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">Email Address*</label>
+                <input 
+                  id="email"
+                  name="email" 
+                  type="email" 
+                  required 
+                  value={form.email} 
+                  onChange={handleChange} 
+                  className="w-full border-2 border-gray-300 bg-white py-3 px-4 text-gray-900 rounded-lg focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-200 transition-all duration-300" 
+                  placeholder="Enter your email address"
+                />
               </div>
-              <div className="relative">
-                <textarea name="message" required value={form.message} onChange={handleChange} className="peer w-full border-b-2 border-blue-200 bg-transparent py-3 px-2 text-gray-900 placeholder-transparent focus:outline-none focus:border-blue-600 transition-all duration-300 resize-none min-h-[100px]" placeholder="Message*" />
-                <label className="absolute left-2 top-3 text-gray-500 text-base transition-all duration-300 peer-placeholder-shown:top-3 peer-placeholder-shown:text-base peer-focus:-top-5 peer-focus:text-sm peer-focus:text-blue-700 bg-white px-1 rounded">Message*</label>
+              <div>
+                <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">Message*</label>
+                <textarea 
+                  id="message"
+                  name="message" 
+                  required 
+                  value={form.message} 
+                  onChange={handleChange} 
+                  className="w-full border-2 border-gray-300 bg-white py-3 px-4 text-gray-900 rounded-lg focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-200 transition-all duration-300 resize-none min-h-[100px]" 
+                  placeholder="Enter your message"
+                />
               </div>
               <button type="submit" className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 border border-blue-600 hover:border-blue-700 animate-fade-in-up delay-200">Send Message</button>
             </form>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Atom from '../assets/atom.svg';
 
 const trialInfo = [
   {
@@ -41,18 +42,9 @@ const courseOptions = [
 const Trial: React.FC = () => {
   const [form, setForm] = useState({ name: '', phone: '', email: '', course: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
-  const [focus, setFocus] = useState({ name: false, phone: false, email: false, message: false });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const handleFocus = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFocus({ ...focus, [e.target.name]: true });
-  };
-
-  const handleBlur = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFocus({ ...focus, [e.target.name]: false });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -68,7 +60,7 @@ const Trial: React.FC = () => {
         {/* Info Card */}
         <div className="bg-white/90 rounded-3xl shadow-2xl p-10 flex flex-col gap-8 border border-blue-100 animate-fade-in-left">
           <div className="flex items-center gap-3 mb-2">
-            <img src="https://www.svgrepo.com/show/354380/atom.svg" alt="Atom" className="w-10 h-10 opacity-80" />
+            <img src={Atom} alt="Atom" className="w-10 h-10 opacity-80" />
             <h1 className="text-3xl md:text-4xl font-extrabold text-blue-900 bg-gradient-to-r from-blue-400 via-blue-700 to-purple-600 bg-clip-text text-transparent animate-fade-in-up">Book a Trial Class</h1>
           </div>
           <p className="text-lg text-gray-700 mb-4 animate-fade-in-up delay-100">Experience our teaching style, meet our expert faculty, and get a feel for our learning environment. Book your trial class today!</p>
@@ -103,86 +95,72 @@ const Trial: React.FC = () => {
             <div className="bg-green-100 text-green-800 p-4 rounded-lg animate-fade-in-up">Thank you for booking a trial class! We will contact you soon.</div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6 animate-fade-in-up delay-100">
-              <div className="relative">
+              <div>
+                <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">Name*</label>
                 <input
+                  id="name"
                   name="name"
                   type="text"
                   required
                   value={form.name}
                   onChange={handleChange}
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
-                  className="w-full border-b-2 border-blue-200 bg-transparent py-3 px-2 text-gray-900 focus:outline-none focus:border-blue-600 transition-all duration-300"
-                  placeholder=" "
-                  autoComplete="off"
+                  className="w-full border-2 border-gray-300 bg-white py-3 px-4 text-gray-900 rounded-lg focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-200 transition-all duration-300"
+                  placeholder="Enter your name"
                 />
-                <label
-                  className={`absolute left-2 top-3 text-gray-500 text-base transition-all duration-300 bg-white px-1 rounded pointer-events-none
-                    ${(focus.name || form.name) ? '-top-5 text-sm text-blue-700' : ''}`}
-                >Name*</label>
               </div>
-              <div className="relative">
+              <div>
+                <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-2">Phone Number*</label>
                 <input
+                  id="phone"
                   name="phone"
                   type="tel"
                   required
                   value={form.phone}
                   onChange={handleChange}
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
-                  className="w-full border-b-2 border-blue-200 bg-transparent py-3 px-2 text-gray-900 focus:outline-none focus:border-blue-600 transition-all duration-300"
-                  placeholder=" "
-                  autoComplete="off"
+                  className="w-full border-2 border-gray-300 bg-white py-3 px-4 text-gray-900 rounded-lg focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-200 transition-all duration-300"
+                  placeholder="Enter your phone number"
                 />
-                <label
-                  className={`absolute left-2 top-3 text-gray-500 text-base transition-all duration-300 bg-white px-1 rounded pointer-events-none
-                    ${(focus.phone || form.phone) ? '-top-5 text-sm text-blue-700' : ''}`}
-                >Phone Number*</label>
               </div>
-              <div className="relative">
+              <div>
+                <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">Email Address*</label>
                 <input
+                  id="email"
                   name="email"
                   type="email"
                   required
                   value={form.email}
                   onChange={handleChange}
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
-                  className="w-full border-b-2 border-blue-200 bg-transparent py-3 px-2 text-gray-900 focus:outline-none focus:border-blue-600 transition-all duration-300"
-                  placeholder=" "
-                  autoComplete="off"
+                  className="w-full border-2 border-gray-300 bg-white py-3 px-4 text-gray-900 rounded-lg focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-200 transition-all duration-300"
+                  placeholder="Enter your email address"
                 />
-                <label
-                  className={`absolute left-2 top-3 text-gray-500 text-base transition-all duration-300 bg-white px-1 rounded pointer-events-none
-                    ${(focus.email || form.email) ? '-top-5 text-sm text-blue-700' : ''}`}
-                >Email Address*</label>
               </div>
-              <div className="relative">
-                {/* Static label for select */}
-                <label className="block mb-1 text-gray-500 text-base font-medium">Select a course*</label>
-                <select name="course" required value={form.course} onChange={handleChange} className="peer w-full border-b-2 border-blue-200 bg-transparent py-3 px-2 text-gray-900 focus:outline-none focus:border-blue-600 transition-all duration-300">
-                  <option value="" disabled>Select a course*</option>
+              <div>
+                <label htmlFor="course" className="block text-sm font-semibold text-gray-700 mb-2">Select a course*</label>
+                <select 
+                  id="course"
+                  name="course" 
+                  required 
+                  value={form.course} 
+                  onChange={handleChange} 
+                  className="w-full border-2 border-gray-300 bg-white py-3 px-4 text-gray-900 rounded-lg focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-200 transition-all duration-300"
+                >
+                  <option value="" disabled>Select a course</option>
                   {courseOptions.map((option, i) => (
                     <option key={i} value={option}>{option}</option>
                   ))}
                 </select>
               </div>
-              <div className="relative">
+              <div>
+                <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">Message*</label>
                 <textarea
+                  id="message"
                   name="message"
                   required
                   value={form.message}
                   onChange={handleChange}
-                  onFocus={handleFocus}
-                  onBlur={handleBlur}
-                  className="w-full border-b-2 border-blue-200 bg-transparent py-3 px-2 text-gray-900 focus:outline-none focus:border-blue-600 transition-all duration-300 resize-none min-h-[100px]"
-                  placeholder=" "
-                  autoComplete="off"
+                  className="w-full border-2 border-gray-300 bg-white py-3 px-4 text-gray-900 rounded-lg focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-200 transition-all duration-300 resize-none min-h-[100px]"
+                  placeholder="Enter your message"
                 />
-                <label
-                  className={`absolute left-2 top-3 text-gray-500 text-base transition-all duration-300 bg-white px-1 rounded pointer-events-none
-                    ${(focus.message || form.message) ? '-top-5 text-sm text-blue-700' : ''}`}
-                >Message*</label>
               </div>
               <button type="submit" className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 border border-blue-600 hover:border-blue-700 animate-fade-in-up delay-200">Submit now</button>
             </form>

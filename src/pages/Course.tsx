@@ -22,7 +22,7 @@ const Courses: React.FC = () => {
       students: '1200+',
       price: '₹15,000',
       originalPrice: '₹25,000',
-      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      image: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
       features: ['Live Classes', 'Doubt Sessions', 'Mock Tests', 'Study Material'],
       level: 'Advanced',
       rating: 4.8
@@ -92,7 +92,7 @@ const Courses: React.FC = () => {
       students: '2000+',
       price: '₹8,000',
       originalPrice: '₹15,000',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80',
+      image: 'https://images.unsplash.com/photo-1513258496099-48168024aec0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
       features: ['Board Syllabus', 'Concept Videos', 'Practice Questions', 'Exam Preparation'],
       level: 'Intermediate',
       rating: 4.6
@@ -120,7 +120,7 @@ const Courses: React.FC = () => {
       students: '500+',
       price: '₹5,000',
       originalPrice: '₹10,000',
-      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      image: 'https://images.unsplash.com/photo-1464983953574-0892a716854b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
       features: ['Quick Revision', 'Important Topics', 'Mock Tests', 'Doubt Clearing'],
       level: 'All Levels',
       rating: 4.4
